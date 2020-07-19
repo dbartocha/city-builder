@@ -8,7 +8,7 @@ class CityBuilder extends Component {
   state = {
     gameBoard: {
       rows: 4,
-      columns: 3,
+      columns: 4,
     },
   }
 
