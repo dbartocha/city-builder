@@ -1,4 +1,6 @@
-$color: red;
 .CityBuilder {
-  color: $color;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 100px auto 0;
 }

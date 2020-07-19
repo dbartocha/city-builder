@@ -1,0 +1,8 @@
+$side : 150px;
+.SingleField {
+  display: inline-block;
+  width: $side;
+  height: $side;
+  background-color: #CDCDCD;
+  border: 1px solid #000;
+}
