@@ -1,5 +1,21 @@
-.BuildingsMenu{
-    {
-       
-      }
+
+.MenuBuilder{
+
+  text-align: center;
+  ul {
+   
+      list-style: none;
+      display:inline-grid;
+  }
+  li{
+   
+    background-color: #CDCDCD;
+    border:2px solid white;
+    cursor: pointer;
+    &:hover{
+      background-color: #8a8888;
+
+    }
+  }
 }
+
