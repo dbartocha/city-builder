@@ -12,7 +12,7 @@ class Building1x1 extends Component{
 
       render() {
         return(
-      <li className={styles.Building1x1}>Budynek o rozmiarze 1x1</li>
+      <li className={styles.Building1x1}>1x1 Building</li>
         )
     }
 }

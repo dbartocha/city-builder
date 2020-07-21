@@ -1,5 +1,11 @@
 .Building1x1{
     display: block;
-    width: 150px;
-    height: 150px;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    &:hover {
+        width: 150px;
+        height: 150px;
+        transition: 1s;
+    }
 }

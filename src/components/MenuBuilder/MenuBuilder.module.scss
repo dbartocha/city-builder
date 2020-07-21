@@ -1,14 +1,24 @@
+.MainMenu{
+  margin:100px auto 0;
+  max-width:200px;
+  background-color: #dfdfdf;
 
+  p {
+    text-align: center;
+  }
+}
 .MenuBuilder{
-
+  width: 200px;
   text-align: center;
   ul {
    
       list-style: none;
-      display:inline-grid;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
   }
   li{
-   
+   text-align: center;
     background-color: #CDCDCD;
     border:2px solid white;
     cursor: pointer;

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styles from './Building2x2.module.scss';
 
 
+
 class Building1x1 extends Component{
     state = {
         buildingSize: {
@@ -11,8 +12,9 @@ class Building1x1 extends Component{
       }
 
       render() {
+      
         return(
-      <li className={styles.Building1x1}>Budynek o rozmiarze 2x2</li>
+            <li className={styles.Building1x1}>2x2 Building</li>
         )
     }
 }
