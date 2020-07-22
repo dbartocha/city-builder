@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SingleField from '../SingleField/SingleField';
-
+// import firebase from '../../firebase'; example
 import styles from './CityBuilder.module.scss';
 
 
@@ -9,7 +9,7 @@ class CityBuilder extends Component {
     gameBoard: {
       rows: 4,
       columns: 4,
-    },
+    }
   }
 
   render() {
