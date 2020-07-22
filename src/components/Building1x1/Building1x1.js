@@ -14,6 +14,6 @@ class Building1x1 extends Component{
         return(
       <li className={styles.Building1x1}>1x1 Building</li>
         )
-    }
+      }
 }
 export default Building1x1;

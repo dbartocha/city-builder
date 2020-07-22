@@ -1,8 +1,24 @@
 .MainMenu{
   margin:100px auto 0;
   max-width:200px;
-  background-color: #dfdfdf;
-
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  border-radius: 15px;
+  button {
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 15px;
+  }
+  .active{   
+      height: 100%;
+      transition:1s;
+      background-color: #dfdfdf;
+    li{
+      visibility: visible;
+    }
+  }
   p {
     text-align: center;
   }
@@ -11,14 +27,16 @@
   width: 200px;
   text-align: center;
   ul {
-   
+      height:0;
+      background-color: #ffffff;
       list-style: none;
       display: flex;
       justify-content: center;
       flex-direction: column;
   }
   li{
-   text-align: center;
+    visibility:hidden;
+    text-align: center;
     background-color: #CDCDCD;
     border:2px solid white;
     cursor: pointer;
@@ -28,4 +46,6 @@
     }
   }
 }
+
+
 

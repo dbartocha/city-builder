@@ -5,10 +5,23 @@ import Building2x2 from '../Building2x2/Building2x2.js'
 
 
 class MenuBuilder extends Component {
+    handleMenuClick(){
+        let menu = document.querySelector('ul');
+
+        if(menu.classList.contains(styles.active)){
+            menu.classList.remove(styles.active);
+        }
+        else{
+            menu.classList.add(styles.active);
+           
+        }
+    }
+   
+
     render (){
         return(
         <div className={styles.MainMenu}>
-           <p> Buildings Menu</p>
+           <button onClick={this.handleMenuClick}> <p>Buildings Menu</p></button>
             <div className={styles.MenuBuilder}>
                 
                 <ul>
