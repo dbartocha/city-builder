@@ -13,26 +13,23 @@ class MenuBuilder extends Component {
         }
         else{
             menu.classList.add(styles.active);
-           
         }
     }
-   
+
 
     render (){
         return(
-        <div className={styles.MainMenu}>
-           <button onClick={this.handleMenuClick}> <p>Buildings Menu</p></button>
-            <div className={styles.MenuBuilder}>
-                
-                <ul>
-                    <Building1x1/>
-                    <Building2x2/>
-                </ul>
+            <div className={styles.MainMenu}>
+            <button onClick={this.handleMenuClick}> <p>Buildings Menu</p></button>
+                <div className={styles.MenuBuilder}>
+                    <ul>
+                        <Building1x1/>
+                        <Building2x2/>
+                    </ul>
+                </div>
             </div>
-        </div>
-    )
+        )
     };
-    
 }
 
 export default MenuBuilder;
