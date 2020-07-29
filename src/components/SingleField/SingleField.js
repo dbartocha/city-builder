@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styles from './SingleField.module.scss';
 
-const singleField = () => (
-  <div className={styles.SingleField}>
+class singleField extends Component {
 
-  </div>
-);
+
+
+  render() {
+    return (
+      <div id={this.props.id}
+        className={styles.SingleField}
+        onDrop={this.props.dropBuilding}
+        onDragOver={this.props.dragOver}
+      >
+
+      </div>
+    );
+  };
+};
 
 export default singleField;
