@@ -9,12 +9,32 @@ class CityBuilder extends Component {
     gameBoard: {
       rows: 4,
       columns: 4,
-    }
+    },
+    city: {}
   }
 
   componentDidMount() {
-
+    const cityRef = firebase.database().ref('city');
+    cityRef.on('value', (snapshot) => {
+      console.log(snapshot.val())
+      let buildings = snapshot.val();
+      let newCity = [];
+      for (let building in buildings) {
+        newCity.push({
+          BuildingType: buildings[building].buildingType,
+          fieldId: buildings[building].fieldId
+        })
+      }
+      this.setState({
+        city: newCity,
+      })
+    })
   }
+
+  componentDidUpdate() {
+    console.log('[CityBuilder] Updated');
+  }
+
 
   dropBuildingHandler = e => {
     e.preventDefault();
@@ -22,10 +42,19 @@ class CityBuilder extends Component {
 
     const buildingCopy = document.getElementById(building).cloneNode(true);
     buildingCopy.removeAttribute('id')
+    buildingCopy.removeAttribute('draggable')
     const buildingType = buildingCopy.dataset.type
     const fieldId = e.target.id;
 
+    const cityRef = firebase.database().ref('city');
+    const newBuilding = {
+      buildingType: buildingType,
+      fieldId: fieldId
+    }
+    cityRef.push(newBuilding);
+
     e.target.appendChild(buildingCopy);
+
   }
 
   dragOverHandler = e => {
@@ -33,6 +62,7 @@ class CityBuilder extends Component {
   }
 
   render() {
+    console.log(this.state.city);
     let rows = [];
     let boardArray = [];
     for(let i = 0; i<this.state.gameBoard.rows; i++) {
@@ -48,11 +78,19 @@ class CityBuilder extends Component {
         <div key={rowIndex}>
           {
             row.map((_, colIndex) => {
+              let index = rowIndex +''+ colIndex;
+              let building = null;
+              for(var i=0; i<this.state.city.length; i++) {
+                  if(this.state.city[i]['fieldId'].indexOf(index)!=-1) {
+                    building = this.state.city[i];
+                }
+              }
               return <SingleField 
-                        key={rowIndex +''+ colIndex}
-                        id={rowIndex +''+ colIndex}
+                        key={index}
+                        id={index}
                         dropBuilding={this.dropBuildingHandler}
                         dragOver={this.dragOverHandler}
+                        building={building}
                       />;
             })
           }
