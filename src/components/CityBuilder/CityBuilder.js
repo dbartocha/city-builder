@@ -16,7 +16,6 @@ class CityBuilder extends Component {
   componentDidMount() {
     const cityRef = firebase.database().ref('city');
     cityRef.on('value', (snapshot) => {
-      console.log(snapshot.val())
       let buildings = snapshot.val();
       let newCity = [];
       for (let building in buildings) {
@@ -31,18 +30,11 @@ class CityBuilder extends Component {
     })
   }
 
-  componentDidUpdate() {
-    console.log('[CityBuilder] Updated');
-  }
-
-
   dropBuildingHandler = e => {
     e.preventDefault();
-    const building = e.dataTransfer.getData("text/html");
+    const building = e.dataTransfer.getData("building");
 
     const buildingCopy = document.getElementById(building).cloneNode(true);
-    buildingCopy.removeAttribute('id')
-    buildingCopy.removeAttribute('draggable')
     const buildingType = buildingCopy.dataset.type
     const fieldId = e.target.id;
 
@@ -51,10 +43,13 @@ class CityBuilder extends Component {
       buildingType: buildingType,
       fieldId: fieldId
     }
-    cityRef.push(newBuilding);
-
-    e.target.appendChild(buildingCopy);
-
+    cityRef.push(newBuilding)
+    .then(() => {
+      console.log('SAVED')
+    })
+    .catch(error => {
+      console.log(error)
+    });
   }
 
   dragOverHandler = e => {
@@ -62,7 +57,6 @@ class CityBuilder extends Component {
   }
 
   render() {
-    console.log(this.state.city);
     let rows = [];
     let boardArray = [];
     for(let i = 0; i<this.state.gameBoard.rows; i++) {
