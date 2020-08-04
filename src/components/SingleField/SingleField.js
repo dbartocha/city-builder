@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Building from '../Building1x1/Building1x1';
+import Building from '../Building/Building';
 import styles from './SingleField.module.scss';
 
 class singleField extends Component {

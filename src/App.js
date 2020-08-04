@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Layout from './hoc/Layout/Layout';
 import CityBuilder from './components/CityBuilder/CityBuilder';
-import MenuBuilder from './components/MenuBuilder/MenuBuilder';
+import BuildingsMenu from './components/BuildingsMenu/BuildingsMenu';
 import styles from './App.module.scss';
 
 class App extends Component {
@@ -11,7 +11,7 @@ class App extends Component {
         <Layout>
           <div className={styles.MenuBoardSet}>
             <CityBuilder/>
-            <MenuBuilder/>
+            <BuildingsMenu/>
           </div>
         </Layout>
       </div>
