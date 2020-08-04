@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import styles from './Building1x1.module.scss';
+import styles from './Building.module.scss';
 import Aux from '../../hoc/Auxiliary/Auxiliary';
 
 
-class Building1x1 extends Component{
+class Building extends Component{
     state = {
       buildingSize: {
         width: 1,
@@ -16,22 +16,22 @@ class Building1x1 extends Component{
     }
 
       render() {
-        let building =  <li 
+        let building =  <div
           id="small-bulding"
           draggable
-          className={styles.Building1x1}
+          className={styles.Building}
           onDragStart={this.onDragStartHandler}
           data-type="A">
             1x1 Building
-          </li>
+          </div>
 
           if (this.props.onBoard) {
-            building =  <li
+            building =  <div
               className={styles.BuildingOnBoard}
               onDragStart={this.onDragStartHandler}
               data-type="A">
                 1x1 Building
-              </li>
+              </div>
           }
 
         return(
@@ -41,4 +41,4 @@ class Building1x1 extends Component{
         )
       }
 }
-export default Building1x1;
+export default Building;
