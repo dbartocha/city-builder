@@ -9,16 +9,9 @@ class BuildingsMenu extends Component {
         close: true
     }
 
-    openMenuHandler = () => {
-        console.log("here")
+    toggleMenuHandler = () => {
         this.setState({
-            close: false
-        })
-    }
-
-    closeMenuHandler = () => {
-        this.setState({
-            close: true
+            close: !this.state.close
         })
     }
 
@@ -27,11 +20,11 @@ class BuildingsMenu extends Component {
         const menuStyles = [styles.MainMenu, close]
         return(
             <Aux>
-                <button onClick={this.openMenuHandler} className={styles.OpenButton}>
+                <button onClick={this.toggleMenuHandler} className={styles.OpenButton}>
                     Buildings Menu
                 </button>
                 <div className={menuStyles.join(' ')}>
-                    <button onClick={this.closeMenuHandler} className={styles.CloseButton}>
+                    <button onClick={this.toggleMenuHandler} className={styles.CloseButton}>
                         Close
                     </button>
                     <div className={styles.BuildingsWrapper}>
