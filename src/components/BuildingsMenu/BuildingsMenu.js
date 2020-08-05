@@ -3,7 +3,6 @@ import Building from '../Building/Building.js';
 import Aux from '../../hoc/Auxiliary/Auxiliary';
 import styles from './BuildingsMenu.module.scss';
 
-
 class BuildingsMenu extends Component {
     state = {
         close: true
